@@ -1,0 +1,6 @@
+Welcome to the League of Legends Command Line Maze.
+
+Goal: Reach the final_solution.txt file.
+
+Start by finding where League matches take place.
+Hint: Use ls and cd to navigate.
