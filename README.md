@@ -1,18 +1,22 @@
-# Init IS310 Homework
+# IS 310 Coding Assignments
 
-## Proof of Installation
+This repository contains my homework assignments for **IS 310: CUlture as Data Spring 2026** at the University of Illinois Urbana-Champaign.
 
-**Hypothes.is Username:** jvazq77
+## Repository Contents
 
-### 1. Python
-![Python Installation](images/python-installation.png)
+The assignments in this repository focus on building foundational skills with the command line, Git, and GitHub.
 
-### 2. Git
-![Git Installation](images/git-installation.png)
+Included projects:
+- **Command Line Maze**  
+  A terminal-based maze activity designed to practice navigating directories and using basic shell commands.
+- **init-is310**  
+  An initialization assignment used to set up the course environment and practice version control basics.
 
-### 3. VS Code
-![VS Code Installation](images/vscode-installation.png)
+## Purpose
 
-### 4. AI Tool/Workflow
+This repository serves as a central place to organize, submit, and track my coding assignments throughout the semester.
 
-I am planning on using mostly ChatGPT to brainstorm ideas and help manage errors in my code or stuff that i have not learned yet in python that I would like to add to my project. I did not use AI for this homework though
+## Course Information
+
+For more information about the course, visit the official course website:  
+[https://cultureasdata-uiuc.github.io/is310-spring-2026/](https://cultureasdata-uiuc.github.io/is310-spring-2026/)
