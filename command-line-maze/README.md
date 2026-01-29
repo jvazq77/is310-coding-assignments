@@ -14,6 +14,5 @@ Navigate the maze using PowerShell commands and find the final solution.
 - cd ..
 - cat filename.txt
 - ls -Force (shows hidden folders)
-- Get-Content
 
 Follow the clues to reach the solution.
