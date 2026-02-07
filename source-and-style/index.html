@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitized Gaming Object | Doom (1993)</title>
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.70);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(167, 139, 250, 0.35), transparent 60%),
+                  radial-gradient(900px 500px at 90% 20%, rgba(125, 211, 252, 0.28), transparent 55%),
+                  radial-gradient(900px 700px at 50% 100%, rgba(34, 211, 238, 0.18), transparent 60%),
+                  var(--bg);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 18px 64px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 20px rgba(125, 211, 252, 0.35);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.5px;
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+
+    .imgWrap {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      background: rgba(0,0,0,0.25);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+      transform: scale(1);
+      transition: transform 180ms ease;
+    }
+
+    .imgWrap:hover img {
+      transform: scale(1.02);
+    }
+
+    .caption {
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(0,0,0,0.10);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .metaList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .metaItem {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .metaKey {
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .metaVal {
+      text-align: right;
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 140ms ease, background 140ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+    }
+
+    .btn.secondary {
+      background: rgba(125, 211, 252, 0.10);
+      border-color: rgba(125, 211, 252, 0.35);
+      color: #dff6ff;
+    }
+
+    .pillRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 0 4px;
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">
+        <span class="dot"></span>
+        Digitized cultural object
+      </div>
+      <h1>Doom (1993) – MS-DOS Version</h1>
+      <p class="sub">
+        This page presents a digitized cultural object from the Internet Archive. Doom is an influential
+        first-person shooter released in 1993 that helped define the modern FPS genre. The Internet Archive
+        preserves and provides access to the game as part of its software library.
+      </p>
+      <div class="pillRow">
+        <span class="pill">Genre: FPS</span>
+        <span class="pill">Platform: MS-DOS</span>
+        <span class="pill">Preservation: Internet Archive</span>
+      </div>
+    </header>
+
+    <main class="card">
+      <div class="grid">
+        <section class="panel">
+          <h2>Doom Main Screen</h2>
+          <div class="imgWrap">
+            <img src="images/DOOM.png" alt="Doom screenshot" />
+            <div class="caption">Local image file: images/DOOM.png</div>
+          </div>
+
+          <h2 style="margin-top: 14px;">Links</h2>
+          <ul>
+            <li>
+              <a href="https://archive.org/details/doom_20231012" target="_blank" rel="noopener">
+                View the game on Internet Archive
+              </a>
+            </li>
+            <li>
+              <a href="https://archive.org/details/softwarelibrary_msdos_games" target="_blank" rel="noopener">
+                MS-DOS Games Collection
+              </a>
+            </li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn secondary" href="https://archive.org/details/doom_20231012" target="_blank" rel="noopener">
+              Open Object Page
+            </a>
+            <button id="toggleMetaBtn" class="btn" type="button">Toggle Metadata</button>
+          </div>
+        </section>
+
+        <aside class="panel" id="metaPanel">
+          <h2>Metadata</h2>
+          <ul class="metaList">
+            <li class="metaItem">
+              <span class="metaKey">Title</span>
+              <span class="metaVal">Doom</span>
+            </li>
+            <li class="metaItem">
+              <span class="metaKey">Year</span>
+              <span class="metaVal">1993</span>
+            </li>
+            <li class="metaItem">
+              <span class="metaKey">Developer</span>
+              <span class="metaVal">id Software</span>
+            </li>
+            <li class="metaItem">
+              <span class="metaKey">Platform</span>
+              <span class="metaVal">MS-DOS</span>
+            </li>
+            <li class="metaItem">
+              <span class="metaKey">Format</span>
+              <span class="metaVal">Digitized software</span>
+            </li>
+            <li class="metaItem">
+              <span class="metaKey">Archive</span>
+              <span class="metaVal">Internet Archive</span>
+            </li>
+          </ul>
+
+          <h2 style="margin-top: 14px;">Description</h2>
+          <p style="margin: 0; color: var(--muted);">
+            Doom is a historically significant video game that shaped the first-person shooter genre and influenced
+            multiplayer gaming and modding communities. Digital preservation of games like Doom allows researchers
+            and players to study game design, technology, and culture over time.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      Note: This page was created for IS 310 to practice basic HTML, CSS, and simple JavaScript interactivity.
+    </footer>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleMetaBtn");
+    const metaPanel = document.getElementById("metaPanel");
+
+    toggleBtn.addEventListener("click", () => {
+      metaPanel.classList.toggle("hidden");
+      toggleBtn.textContent = metaPanel.classList.contains("hidden")
+        ? "Show Metadata"
+        : "Toggle Metadata";
+    });
+  </script>
+</body>
+</html>
