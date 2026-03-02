@@ -1,0 +1,90 @@
+import csv
+from pathlib import Path
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
+# File setup
+output_dir = Path(__file__).parent / "output"
+output_dir.mkdir(exist_ok=True)
+file_path = output_dir / "movies.csv"
+
+# Load existing data (if any)
+movies = []
+
+if file_path.exists():
+    with open(file_path, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        next(reader)  # skip header
+        for row in reader:
+            movies.append(row)
+
+# Show example data
+console.print("Here is some initial data:", style="bold cyan")
+
+example_table = Table(title="Example Movies")
+example_table.add_column("Released")
+example_table.add_column("Title")
+example_table.add_column("Box Office")
+
+example_table.add_row("Dec 20, 2019", "Star Wars: The Rise of Skywalker", "$952,110,690")
+example_table.add_row("May 25, 2018", "Solo: A Star Wars Story", "$393,151,347")
+
+console.print(example_table)
+
+# Show previously saved movies
+if movies:
+    console.print("\n[bold cyan]Previously saved movies:[/bold cyan]")
+
+    saved_table = Table(title="Saved Movies")
+    saved_table.add_column("Title")
+    saved_table.add_column("Release Date")
+    saved_table.add_column("Box Office")
+
+    for movie in movies:
+        saved_table.add_row(movie[0], movie[1], movie[2])
+
+    console.print(saved_table)
+
+# Data entry loop
+console.print("\n[bold cyan]Now enter your own movies:[/bold cyan]")
+
+while True:
+    title = console.input("Movie title: ")
+    release = console.input("Release date: ")
+    box_office = console.input("Box office earnings: ")
+
+    # Confirm entry
+    confirm_table = Table(title="Confirm Entry")
+    confirm_table.add_column("Field")
+    confirm_table.add_column("Value")
+
+    confirm_table.add_row("Title", title)
+    confirm_table.add_row("Release Date", release)
+    confirm_table.add_row("Box Office", box_office)
+
+    console.print(confirm_table)
+
+    confirm = console.input("Is this correct? (y/n): ").lower()
+
+    if confirm == "y":
+        movies.append([title, release, box_office])
+        console.print("Entry saved.", style="bold green")
+    else:
+        console.print("Re-enter the movie.", style="bold yellow")
+        continue
+
+    again = console.input("Add another movie? (y/n): ").lower()
+    if again != "y":
+        break
+
+# Save to CSV
+with open(file_path, "w", newline="", encoding="utf-8") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Title", "Release Date", "Box Office"])
+    writer.writerows(movies)
+
+# Final message
+console.print("\n[bold green]Data saved successfully![/bold green]")
+console.print(f"File location: {file_path.resolve()}")

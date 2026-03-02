@@ -1,0 +1,5 @@
+You are on Summoner's Rift.
+
+The world of League of Legends is called Runeterra.
+Go back and enter the runeterra folder.
+Start with Demacia.
