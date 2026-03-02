@@ -1,4 +1,4 @@
-# List of favorite movies
+# favorite movies
 favorite_movies = [
     {"title": "The Matrix", "year": 1999},
     {"title": "Inception", "year": 2010},
@@ -7,7 +7,7 @@ favorite_movies = [
     {"title": "Jurassic Park", "year": 1993}
 ]
 
-# Function that checks the movie release year
+# release year
 def check_movie(movie):
     if movie["year"] < 2000:
         print("This movie was released before 2000")
