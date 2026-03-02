@@ -10,7 +10,7 @@ output_dir = Path(__file__).parent / "output"
 output_dir.mkdir(exist_ok=True)
 file_path = output_dir / "movies.csv"
 
-# Load existing data (if any)
+# Load existing data
 movies = []
 
 if file_path.exists():
