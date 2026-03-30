@@ -1,0 +1,24 @@
+{
+  "source_api": "Riot Data Dragon",
+  "riot_item": {
+    "id": "Vi",
+    "name": "Vi",
+    "title": "the Piltover Enforcer",
+    "partype": "Mana",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lore": "Raised on the mean streets of Zaun, Vi is a hotheaded, impulsive, and fearsome woman with very little respect for authority. She has always been a shrewd survivor, both from her youthful troublemaking topside and an unfairly long stint in Stillwater Hold. Now working with the Piltover Enforcers to keep the peace instead of breaking it, she wields mighty hextech gauntlets that can punch through walls—and criminals—with equal ease."
+  },
+  "europeana_item": {
+    "id": "/item/2024914/photography_ProvidedCHO_Ajuntament_de_Girona_064512",
+    "title": "[Retrat d'un boxejador]",
+    "type": "IMAGE",
+    "provider": "PHOTOCONSORTIUM",
+    "creator": "Josep Jou Parés",
+    "date": "1920-1936",
+    "country": "Spain",
+    "rights": "Ajuntament de Girona"
+  }
+}
